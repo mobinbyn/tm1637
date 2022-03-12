@@ -135,144 +135,147 @@ volatile const uint8_t SEVEN_SEGMENT_LOOKUP_TABLE[52] =
  */
 uint8_t tm1637_getCharFromLookupTable(char c)
 {
-  uint8_t temp;
+  uint8_t tmp;
   switch (c)
   {
   case '0':
-    temp = DIGIT_0_INDEX;
+    tmp = DIGIT_0_INDEX;
     break;
   case '1':
-    temp = DIGIT_1_INDEX;
+    tmp = DIGIT_1_INDEX;
     break;
   case '2':
-    temp = DIGIT_2_INDEX;
+    tmp = DIGIT_2_INDEX;
     break;
   case '3':
-    temp = DIGIT_3_INDEX;
+    tmp = DIGIT_3_INDEX;
     break;
   case '4':
-    temp = DIGIT_4_INDEX;
+    tmp = DIGIT_4_INDEX;
     break;
   case '5':
-    temp = DIGIT_5_INDEX;
+    tmp = DIGIT_5_INDEX;
     break;
   case '6':
-    temp = DIGIT_6_INDEX;
+    tmp = DIGIT_6_INDEX;
     break;
   case '7':
-    temp = DIGIT_7_INDEX;
+    tmp = DIGIT_7_INDEX;
     break;
   case '8':
-    temp = DIGIT_8_INDEX;
+    tmp = DIGIT_8_INDEX;
     break;
   case '9':
-    temp = DIGIT_9_INDEX;
+    tmp = DIGIT_9_INDEX;
     break;
   case 'A':
-    temp = CAPITAL_A_INDEX;
+    tmp = CAPITAL_A_INDEX;
     break;
   case 'C':
-    temp = CAPITAL_C_INDEX;
+    tmp = CAPITAL_C_INDEX;
     break;
   case 'E':
-    temp = CAPITAL_E_INDEX;
+    tmp = CAPITAL_E_INDEX;
     break;
   case 'F':
-    temp = CAPITAL_F_INDEX;
+    tmp = CAPITAL_F_INDEX;
     break;
   case 'G':
-    temp = CAPITAL_G_INDEX;
+    tmp = CAPITAL_G_INDEX;
     break;
   case 'H':
-    temp = CAPITAL_H_INDEX;
+    tmp = CAPITAL_H_INDEX;
     break;
   case 'J':
-    temp = CAPITAL_J_INDEX;
+    tmp = CAPITAL_J_INDEX;
     break;
   case 'L':
-    temp = CAPITAL_L_INDEX;
+    tmp = CAPITAL_L_INDEX;
     break;
   case 'N':
-    temp = CAPITAL_N_INDEX;
+    tmp = CAPITAL_N_INDEX;
     break;
   case 'P':
-    temp = CAPITAL_P_INDEX;
+    tmp = CAPITAL_P_INDEX;
     break;
   case 'U':
-    temp = CAPITAL_U_INDEX;
+    tmp = CAPITAL_U_INDEX;
     break;
   case 'Y':
-    temp = CAPITAL_Y_INDEX;
+    tmp = CAPITAL_Y_INDEX;
     break;
   case 'a':
-    temp = LOWERCASE_a_INDEX;
+    tmp = LOWERCASE_a_INDEX;
     break;
   case 'b':
-    temp = LOWERCASE_b_INDEX;
+    tmp = LOWERCASE_b_INDEX;
     break;
   case 'c':
-    temp = LOWERCASE_c_INDEX;
+    tmp = LOWERCASE_c_INDEX;
     break;
   case 'd':
-    temp = LOWERCASE_d_INDEX;
+    tmp = LOWERCASE_d_INDEX;
     break;
   case 'e':
-    temp = LOWERCASE_e_INDEX;
+    tmp = LOWERCASE_e_INDEX;
     break;
   case 'h':
-    temp = LOWERCASE_h_INDEX;
+    tmp = LOWERCASE_h_INDEX;
     break;
   case 'i':
-    temp = LOWERCASE_i_INDEX;
+    tmp = LOWERCASE_i_INDEX;
     break;
   case 'j':
-    temp = LOWERCASE_j_INDEX;
+    tmp = LOWERCASE_j_INDEX;
     break;
   case 'l':
-    temp = LOWERCASE_l_INDEX;
+    tmp = LOWERCASE_l_INDEX;
     break;
   case 'n':
-    temp = LOWERCASE_n_INDEX;
+    tmp = LOWERCASE_n_INDEX;
     break;
   case 'o':
-    temp = LOWERCASE_o_INDEX;
+    tmp = LOWERCASE_o_INDEX;
     break;
   case 'q':
-    temp = LOWERCASE_q_INDEX;
+    tmp = LOWERCASE_q_INDEX;
     break;
   case 'r':
-    temp = LOWERCASE_r_INDEX;
+    tmp = LOWERCASE_r_INDEX;
     break;
   case 't':
-    temp = LOWERCASE_t_INDEX;
+    tmp = LOWERCASE_t_INDEX;
     break;
   case 'u':
-    temp = LOWERCASE_u_INDEX;
+    tmp = LOWERCASE_u_INDEX;
     break;
   case '-':
-    temp = PUNCTUATION_MINZ_INDEX;
+    tmp = PUNCTUATION_MINZ_INDEX;
     break;
   case '_':
-    temp = PUNCTUATION___INDEX;
+    tmp = PUNCTUATION___INDEX;
     break;
   case '=':
-    temp = PUNCTUATION_EQ_INDEX;
+    tmp = PUNCTUATION_EQ_INDEX;
     break;
   case '\\':
-    temp = PUNCTUATION_BK_SL_INDEX;
+    tmp = PUNCTUATION_BK_SL_INDEX;
     break;
   case '/':
-    temp = PUNCTUATION_SL_INDEX;
+    tmp = PUNCTUATION_SL_INDEX;
     break;
   case ']':
-    temp = PUNCTUATION_CBR_INDEX;
+    tmp = PUNCTUATION_CBR_INDEX;
     break;
+  case '.':
+    tmp = JUST_P_INDEX;
+    break;;
 
   default:
-    temp = 0xff; // It means error.
+    tmp = 0xff; // It means error.
     break;
   }
-  return temp;
+  return tmp;
 }
 
 

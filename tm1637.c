@@ -1,6 +1,7 @@
 
 #include "tm1637.h"
 #include "tm1637_config.h"
+#include "tm1637_pattern.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -15,10 +16,6 @@
 #define TM1637_COMM2    0xC0
 #define TM1637_COMM3    0x80
 
-const uint8_t _tm1637_digit[] =
-  {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 0x7f, 0x6f};
-const uint8_t _tm1637_minus = 0x40;
-const uint8_t _tm1637_dot = 0x80;  
 //#######################################################################################################################
 void tm1637_delay_us(uint8_t delay)
 {
@@ -156,9 +153,9 @@ void tm1637_write_int(tm1637_t *tm1637, int32_t digit, uint8_t pos)
   for (uint8_t i=0; i < 6; i++)
   {
     if (str[i] == '-')
-      buffer[i] = _tm1637_minus;
+      buffer[i] = tm1637_getCharFromLookupTable('-');
     else if((str[i] >= '0') && (str[i] <= '9'))
-      buffer[i] = _tm1637_digit[str[i] - 48];
+      buffer[i] = tm1637_getCharFromLookupTable(str[i]);
     else
     {
       buffer[i] = 0;
@@ -215,18 +212,18 @@ void tm1637_write_float(tm1637_t *tm1637, float digit, uint8_t floating_digit, u
   {
     if (str[i] == '-')
     {
-      buffer[index] = _tm1637_minus;
+      buffer[index] = tm1637_getCharFromLookupTable('-');
       index++;
     }
     else if((str[i] >= '0') && (str[i] <= '9'))
     {
-      buffer[index] = _tm1637_digit[str[i] - 48];
+      buffer[index] = tm1637_getCharFromLookupTable(str[i]);
       index++;
     }
     else if (str[i] == '.')
     {
       if (index > 0)
-        buffer[index - 1] |= _tm1637_dot;      
+        buffer[index - 1] |= tm1637_getCharFromLookupTable('.');      
     }
     else
     {
